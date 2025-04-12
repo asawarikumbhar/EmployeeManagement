@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Employee Details</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://i0.wp.com/reflexerp.com/wp-content/uploads/2016/03/shutterstock_136652339-web-1.png?fit=1500%2C998&ssl=1') 
+                  no-repeat center center/cover;
+      margin: 0;
+      padding-top: 80px;
+    }
+
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+    }
+
+    .nav-link:hover {
+      color: #ffc107;
+    }
+
+    .container {
+      max-width: 900px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+      width: 100%;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .alert {
+      font-size: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <a class="navbar-brand" href="#"><i class="fas fa-users"></i> Employee Management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>
+      <li class="nav-item"><a class="nav-link" href="/addEmployee">Add Employee</a></li>
+      <li class="nav-item"><a class="nav-link" href="/registration">Register/Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="text-primary text-center"> <i class="fas fa-user-plus"></i> Add Employee Details</h2>
+
+  <form th:object="${Employee}" th:action="@{/addEmployee}"   method="post" enctype="multipart/form-data">
+
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" th:field="*{name}" class="form-control" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" th:field="*{email}" class="form-control" required>
+        </div>
+
+        <!-- Department -->
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select id="department" th:field="*{department}" class="form-control" required>
+            <option value="IT Department">IT Department</option>
+            <option value="Finance">Finance</option>
+            <option value="Banking">Banking</option>
+          </select>
+        </div>
+
+        <!-- Employee Type -->
+        <div class="form-group">
+          <label for="empType">Employee Type</label>
+          <select id="empType" th:field="*{empType}" class="form-control" required>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Intern">Intern</option>
+            <option value="Contract">Contract</option>
+          </select>
+        </div>
+
+      
+
+      </div>
+
+      <div class="col-md-6">
+        <!-- Position -->
+        <div class="form-group">
+          <label for="position"> Position</label>
+          <select id="position" th:field="*{position}" class="form-control" required>
+            <option value="IT Developer">IT Developer</option>
+            <option value="Tester">Tester</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Technical Support">Technical Support</option>
+          </select>
+        </div>
+
+        <!-- Salary -->
+        <div class="form-group">
+          <label for="salary"> Salary </label>
+          <input type="number" id="salary" th:field="*{salary}" class="form-control" min="0" required>
+        </div>
+        
+        
+          <!-- Date of Joining -->
+        <div class="form-group">
+          <label for="dateOfJoining">Date of Joining</label>
+          <input type="date" id="dateOfJoining" th:field="*{dateOfJoining}" class="form-control" required>
+        </div>
+        
+
+        <!-- Address -->
+        <div class="form-group">
+          <label for="address"> Address</label>
+          <textarea id="address" th:field="*{address}" class="form-control" rows="3"></textarea>
+        </div>
+        
+        
+        
+        
+
+<!--         Upload Photo -->
+<!--         <div class="form-group"> -->
+<!--           <label for="photo">Employee Photo</label> -->
+<!--           <input type="file" id="photo" name="photo" class="form-control-file" accept="image/*" required> -->
+<!--         </div>        -->
+
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Employee</button>
+
+    <div class="text-center mt-3">
+      <a href="/viewEmployeeList" class="btn btn-secondary"><i class="fas fa-list"></i> Go to Employee List</a>
+    </div>
+  </form>
+
+  <div th:if="${successMsg}" class="alert alert-success mt-4" role="alert">
+    <p th:text="${successMsg}"></p>
+  </div>
+
+  <div th:if="${errorMsg}" class="alert alert-danger mt-4" role="alert">
+    <p th:text="${errorMsg}"></p>
+  </div>
+</div>
+
+</body>
+</html>
