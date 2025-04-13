@@ -12,8 +12,8 @@ A full-stack web application to manage employee details, including login functio
   - Role
   - Date of Joining
   - salary
-  - View list of all employees
-  - Add/Edit/Delete/search employee records
+- View list of all employees
+- Add/Edit/Delete/search employee records
  
    ## Tech Stack
 
