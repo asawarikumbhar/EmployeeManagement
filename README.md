@@ -22,7 +22,7 @@ A full-stack web application to manage employee details, including login functio
 - **Database:** MySQL
 - **Tools:** Spring Tool Suite (STS), Maven, Git, GitHub
 
-- Here i uploaded some screenshots of project:
+  ##  Here i uploaded some screenshots of project:
 
 ![image](https://github.com/user-attachments/assets/16b88d8c-d1ed-4d1d-893b-4d975c482cdd)
 
