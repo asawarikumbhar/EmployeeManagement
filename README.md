@@ -1,4 +1,28 @@
-here i uploaded the screenshot of project
+# Employee Management System
+
+A full-stack web application to manage employee details, including login functionality, user management. Built with Java, Spring Boot, Thymeleaf, and MySQL.
+
+## Features
+
+- Employee/user login
+- View personal employee details:
+  - Name
+  - Employee ID
+  - Department
+  - Role
+  - Date of Joining
+  - salary
+  - View list of all employees
+  - Add/Edit/Delete/search employee records
+ 
+   ## Tech Stack
+
+- **Backend:** Java, Spring Boot, Spring Data JPA
+- **Frontend:** Thymeleaf, HTML, CSS, Bootstrap
+- **Database:** MySQL
+- **Tools:** Spring Tool Suite (STS), Maven, Git, GitHub
+
+- Here i uploaded some screenshots of project:
 
 ![image](https://github.com/user-attachments/assets/16b88d8c-d1ed-4d1d-893b-4d975c482cdd)
 
